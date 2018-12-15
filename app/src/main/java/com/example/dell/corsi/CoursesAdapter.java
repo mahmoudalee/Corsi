@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull CoursesAdapter.ViewHolder viewHolder, int i) {
+        viewHolder.imageView.setImageResource(courses.get(i).getImage());
         viewHolder.mName.setText(courses.get(i).getName());
         viewHolder.mDiscription.setText(courses.get(i).getDescription());
     }
@@ -54,12 +56,14 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener{
 
+        ImageView imageView;
         TextView mName;
         TextView mDiscription;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mName = itemView.findViewById(R.id.name_course_view);
             mDiscription = itemView.findViewById(R.id.description_course_view);
+            imageView = itemView.findViewById(R.id.image_course_view);
             itemView.setOnClickListener(this);
         }
 

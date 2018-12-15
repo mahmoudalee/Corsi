@@ -4,6 +4,7 @@ public class CoursesBuilder {
 
     private String name;
     private String description;
+    private int image;
 
     public CoursesBuilder setName(String name) {
         this.name = name;
@@ -13,8 +14,12 @@ public class CoursesBuilder {
         this.description = description;
         return this;
     }
+    public CoursesBuilder setImage(int image){
+        this.image = image;
+        return this;
+    }
     public Courses addCource(){
-        return new Courses(name,description);
+        return new Courses(name,description , image);
     }
 
 }

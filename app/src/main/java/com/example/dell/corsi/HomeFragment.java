@@ -36,21 +36,21 @@ public class HomeFragment
 //        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 //
 //        // Inflate the layout for this fragment
-        courses.add(new CoursesBuilder().setName("Android Development (Basics)").setDescription("Learn Java and build mobile apps").addCource());
-        courses.add(new CoursesBuilder().setName("IOS Development").setDescription("Build an App for the iPhone and iPad").addCource());
-        courses.add(new CoursesBuilder().setName("Embedded Systems").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Machine Learning").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Computer Science").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 6").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 7").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 8").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 9").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 10").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 11").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 12").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 13").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 14").setDescription("Android apps").addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 15").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Android Development (Basics)").setDescription("Learn Java and build mobile apps").setImage(R.drawable.slide1).addCource());
+        courses.add(new CoursesBuilder().setName("IOS Development").setDescription("Build an App for the iPhone and iPad").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Embedded Systems").setDescription("Android apps").setImage(R.drawable.slide3).addCource());
+        courses.add(new CoursesBuilder().setName("Machine Learning").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Computer Science").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 6").setDescription("Android apps").setImage(R.drawable.fb).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 7").setDescription("Android apps").setImage(R.drawable.fb).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 8").setDescription("Android apps").setImage(R.drawable.tw).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 9").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 10").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 11").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 12").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 13").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 14").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 15").setDescription("Android apps").setImage(R.drawable.slide3).addCource());
 //
 //        CoursesAdapter arrayAdapter = new CoursesAdapter(getActivity(),courses);
 //        ListView listView = (ListView) rootView.findViewById(R.id.listCourses);
@@ -128,17 +128,28 @@ public class HomeFragment
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    ArrayList<Dashbord> checkForDashboard = new ArrayList<Dashbord>();
+
+    public static ArrayList<Dashbord> checkForDashboard = new ArrayList<Dashbord>();
     @Override
     public void onListItemClick(int itemIndex) {
-
-       DashboardFragment dashboardFragment = new DashboardFragment();
-//        dashbords.add((Dashbord) dashbordFactory.getCard("Android Development", R.drawable.slide1));
-        if(!checkForDashboard.contains(dashbordFactory.getCard(courses.get(itemIndex).getName(), R.drawable.slide1))) {
-            DashboardFragment.addToDashboard(courses.get(itemIndex).getName(), R.drawable.slide1);
-            checkForDashboard.add((Dashbord) dashbordFactory.getCard(courses.get(itemIndex).getName(), R.drawable.slide1));
+        boolean flag = true;
+        if(!checkForDashboard.isEmpty())
+        {
+            for (int i=0 ; i<checkForDashboard.size() ; i++){
+                if(!checkForDashboard.get(i).getName().equals(courses.get(itemIndex).getName())) {
+                    flag = true;
+                }
+                else {
+                    flag = false;
+                    break;
+                }
+            }
         }
-        //        Intent intent = new Intent(getActivity() , AndroidCourse.class);
-//        startActivity(intent);
+        if (flag){
+            DashboardFragment.addToDashboard(courses.get(itemIndex).getName(), courses.get(itemIndex).getImage());
+            checkForDashboard.add((Dashbord) dashbordFactory.getCard(courses.get(itemIndex).getName(), courses.get(itemIndex).getImage()));
+        }
+        Intent intent = new Intent(getActivity() , AndroidCourse.class);
+        startActivity(intent);
     }
 }

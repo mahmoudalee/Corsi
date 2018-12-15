@@ -49,7 +49,7 @@ public class DashboardFragment extends Fragment {
         dashbords.add((Dashbord) dashbordFactory.getCard(name, image));
     }
 
-    ;
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
