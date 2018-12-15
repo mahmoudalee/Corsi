@@ -13,10 +13,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHolder> {
+    final private ListItemClickListener mOnClickListener;
 
     ArrayList<Courses> courses;
-    public CoursesAdapter(ArrayList<Courses> course){
+
+    public interface ListItemClickListener {
+        void onListItemClick(int clickedItemIndex);
+    }
+
+    public CoursesAdapter(ArrayList<Courses> course ,  ListItemClickListener listener){
         courses=course;
+        mOnClickListener = listener;
     }
 
     @NonNull
@@ -44,7 +51,8 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         return courses.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener{
 
         TextView mName;
         TextView mDiscription;
@@ -52,6 +60,13 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
             super(itemView);
             mName = itemView.findViewById(R.id.name_course_view);
             mDiscription = itemView.findViewById(R.id.description_course_view);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int clickPosition = getAdapterPosition();
+            mOnClickListener.onListItemClick(clickPosition);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.dell.corsi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,7 +18,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment
+        implements CoursesAdapter.ListItemClickListener{
 
 
     RecyclerView mRecyclerView;
@@ -29,27 +31,24 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
-
-
 //        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 //
 //        // Inflate the layout for this fragment
-        courses.add(new Courses("Android Development","Android apps"));
-        courses.add(new Courses("IOS Development","Android apps"));
-        courses.add(new Courses("Embedded Systems","Android apps"));
-        courses.add(new Courses("Machine Learning","Android apps"));
-        courses.add(new Courses("Computer Science","Android apps"));
-        courses.add(new Courses("Lesson 6","Android apps"));
-        courses.add(new Courses("Lesson 7","Android apps"));
-        courses.add(new Courses("Lesson 8","Android apps"));
-        courses.add(new Courses("Lesson 9","Android apps"));
-        courses.add(new Courses("Lesson 10","Android apps"));
-        courses.add(new Courses("Lesson 11","Android apps"));
-        courses.add(new Courses("Lesson 12","Android apps"));
-        courses.add(new Courses("Lesson 13","Android apps"));
-        courses.add(new Courses("Lesson 14","Android apps"));
-        courses.add(new Courses("Lesson 15","Android apps"));
+        courses.add(new CoursesBuilder().setName("Android Development (Basics)").setDescription("Learn Java and build mobile apps").addCource());
+        courses.add(new CoursesBuilder().setName("IOS Development").setDescription("Build an App for the iPhone and iPad").addCource());
+        courses.add(new CoursesBuilder().setName("Embedded Systems").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Machine Learning").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Computer Science").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 6").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 7").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 8").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 9").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 10").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 11").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 12").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 13").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 14").setDescription("Android apps").addCource());
+        courses.add(new CoursesBuilder().setName("Lesson 15").setDescription("Android apps").addCource());
 //
 //        CoursesAdapter arrayAdapter = new CoursesAdapter(getActivity(),courses);
 //        ListView listView = (ListView) rootView.findViewById(R.id.listCourses);
@@ -123,7 +122,13 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext() , LinearLayoutManager.HORIZONTAL , false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new CoursesAdapter(courses);
+        mAdapter = new CoursesAdapter(courses , this);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onListItemClick(int itemIndex) {
+        Intent intent = new Intent(getActivity() , AndroidCourse.class);
+        startActivity(intent);
     }
 }
