@@ -20,13 +20,16 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/login">
+
+        </activity>
+        <activity android:name=".AndroidCourse"></activity>
+        <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AndroidCourse"></activity>
     </application>
 
 </manifest>

@@ -18,8 +18,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment
-        implements CoursesAdapter.ListItemClickListener{
+public class HomeFragment
+         extends DashboardFragment
+        implements CoursesAdapter.ListItemClickListener {
+
 
 
     RecyclerView mRecyclerView;
@@ -126,9 +128,17 @@ public class HomeFragment extends Fragment
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    ArrayList<Dashbord> checkForDashboard = new ArrayList<Dashbord>();
     @Override
     public void onListItemClick(int itemIndex) {
-        Intent intent = new Intent(getActivity() , AndroidCourse.class);
-        startActivity(intent);
+
+       DashboardFragment dashboardFragment = new DashboardFragment();
+//        dashbords.add((Dashbord) dashbordFactory.getCard("Android Development", R.drawable.slide1));
+        if(!checkForDashboard.contains(dashbordFactory.getCard(courses.get(itemIndex).getName(), R.drawable.slide1))) {
+            DashboardFragment.addToDashboard(courses.get(itemIndex).getName(), R.drawable.slide1);
+            checkForDashboard.add((Dashbord) dashbordFactory.getCard(courses.get(itemIndex).getName(), R.drawable.slide1));
+        }
+        //        Intent intent = new Intent(getActivity() , AndroidCourse.class);
+//        startActivity(intent);
     }
 }

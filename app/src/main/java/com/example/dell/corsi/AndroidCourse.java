@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 public class AndroidCourse extends AppCompatActivity {
@@ -21,9 +22,14 @@ public class AndroidCourse extends AppCompatActivity {
         videoView.requestFocus();
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
-        Uri uri = Uri.parse("rtsp://r5---sn-4g5ednsk.googlevideo.com/Cj0LENy73wIaNAlsm0m-RMLpjhMYDSANFC2pIhRcMOCoAUIASARgqbeJ2oCnyohbigELX2JObFI4U1M1UU0M/A56623EBC6919EB104FBAC2422C2EB0224B03800.5A3EEDF79DAE90C9A33DF6DAE76461DC1E4FB059/yt6/1/video.3gp");
-        videoView.setVideoURI(uri);
-        videoView.start();
+        try {
+            Uri uri = Uri.parse("rtsp://r5---sn-4g5ednsk.googlevideo.com/Cj0LENy73wIaNAlsm0m-RMLpjhMYDSANFC2pIhRcMOCoAUIASARgqbeJ2oCnyohbigELX2JObFI4U1M1UU0M/A56623EBC6919EB104FBAC2422C2EB0224B03800.5A3EEDF79DAE90C9A33DF6DAE76461DC1E4FB059/yt6/1/video.3gp");
+            videoView.setVideoURI(uri);
+            videoView.start();
+        }catch (Exception e){
+            Toast.makeText(this,"No Connection founded",Toast.LENGTH_LONG).show();
+        }
+
 
     }
 }
