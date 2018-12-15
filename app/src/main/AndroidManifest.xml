@@ -14,15 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".controller.MainActivity"
             android:icon="@drawable/logo"
             android:label="@string/app_name"></activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".controller.LoginActivity"
             android:theme="@style/login">  </activity>
 
-        <activity android:name=".AndroidCourse"></activity>
-        <activity android:name=".SignUp">
+        <activity android:name=".controller.AndroidCourse"></activity>
+        <activity android:name=".controller.SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

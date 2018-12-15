@@ -1,4 +1,4 @@
-package com.example.dell.corsi;
+package com.example.dell.corsi.model;
 
 public class Sinleton {
     private static String mName;

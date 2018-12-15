@@ -1,4 +1,4 @@
-package com.example.dell.corsi;
+package com.example.dell.corsi.controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dell.corsi.R;
+import com.example.dell.corsi.model.Sinleton;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginButton;

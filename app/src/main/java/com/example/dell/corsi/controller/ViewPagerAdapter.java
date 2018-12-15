@@ -1,4 +1,4 @@
-package com.example.dell.corsi;
+package com.example.dell.corsi.controller;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.dell.corsi.R;
 
 
 public class ViewPagerAdapter extends PagerAdapter {

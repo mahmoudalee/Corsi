@@ -1,4 +1,4 @@
-package com.example.dell.corsi;
+package com.example.dell.corsi.controller;
 
 
 import android.os.Bundle;
@@ -10,7 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
+
+import com.example.dell.corsi.model.Dashbord;
+import com.example.dell.corsi.model.DashbordFactory;
+import com.example.dell.corsi.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.dell.corsi;
+package com.example.dell.corsi.controller;
 
 
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.example.dell.corsi.model.Downloads;
+import com.example.dell.corsi.R;
 
 import java.util.ArrayList;
 

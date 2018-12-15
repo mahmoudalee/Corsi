@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AndroidCourse">
+    tools:context=".controller.AndroidCourse">
 
     <VideoView
         android:id="@+id/android_video"

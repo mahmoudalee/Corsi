@@ -1,4 +1,4 @@
-package com.example.dell.corsi;
+package com.example.dell.corsi.controller;
 
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.example.dell.corsi.R;
 
 public class AndroidCourse extends AppCompatActivity {
 

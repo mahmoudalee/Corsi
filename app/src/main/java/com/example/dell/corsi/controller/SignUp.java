@@ -1,4 +1,4 @@
-package com.example.dell.corsi;
+package com.example.dell.corsi.controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.dell.corsi.R;
+import com.example.dell.corsi.model.Sinleton;
 
 public class SignUp extends AppCompatActivity {
     Button signButton;
@@ -24,10 +28,18 @@ public class SignUp extends AppCompatActivity {
         signButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sinleton  = Sinleton.getAdmin(userName.getText().toString(),password.getText().toString());
 
-                Intent intent = new Intent(SignUp.this, MainActivity.class);
-                startActivity(intent);
+                if(!userName.getText().toString().equals("") && !password.getText().toString().equals(""))
+                {
+                    sinleton  = Sinleton.getAdmin(userName.getText().toString(),password.getText().toString());
+
+                    Intent intent = new Intent(SignUp.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(SignUp.this,"You have to enter a correct data",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
