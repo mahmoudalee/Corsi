@@ -11,9 +11,9 @@ public class HomeCourses {
     public ArrayList<Courses> CreateCourses(){
         courses.add(new CoursesBuilder().setName("Android Development (Basics)").setDescription("Learn Java and build mobile apps").setImage(R.drawable.slide1).addCource());
         courses.add(new CoursesBuilder().setName("IOS Development").setDescription("Build an App for the iPhone and iPad").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Embedded Systems").setDescription("Android apps").setImage(R.drawable.slide3).addCource());
-        courses.add(new CoursesBuilder().setName("Machine Learning").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Computer Science").setDescription("Android apps").setImage(R.drawable.slide1).addCource());
+        courses.add(new CoursesBuilder().setName("Embedded Systems").setDescription("Design & build Electronic Circuits").setImage(R.drawable.slide3).addCource());
+        courses.add(new CoursesBuilder().setName("Machine Learning").setDescription("Learn Probabilities and Mathematics").setImage(R.drawable.slide2).addCource());
+        courses.add(new CoursesBuilder().setName("Computer Science").setDescription("Learn Algorithms ").setImage(R.drawable.slide1).addCource());
         return courses;
     }
 }

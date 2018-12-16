@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                    startActivity(i);
                }
                else{
-                   Toast.makeText(LoginActivity.this,"You are not the admin !!!", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(LoginActivity.this,"You are not signed in", Toast.LENGTH_SHORT).show();
                }
             }
         });

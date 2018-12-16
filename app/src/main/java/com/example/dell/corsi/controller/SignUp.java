@@ -31,16 +31,27 @@ public class SignUp extends AppCompatActivity {
 
                 //Validation to check if user add data or not
                 // then add it to Singleton
-                if(!userName.getText().toString().equals("") && !password.getText().toString().equals(""))
+                boolean checkName = true , checkPass = true;
+
+                if(userName.getText().toString().equals("")){
+                    Toast.makeText(SignUp.this,"Enter your name",Toast.LENGTH_SHORT).show();
+                    checkName =false;}
+                if(password.getText().toString().equals("") || password.getText().toString().length()<5)
+                {
+                    Toast.makeText(SignUp.this , "Your password must be more than 5 characters" ,Toast.LENGTH_LONG).show();
+                    checkPass = false;
+                }
+
+                if(checkName && checkPass)
                 {
                     sinleton  = Sinleton.getAdmin(userName.getText().toString(),password.getText().toString());
 
                     Intent intent = new Intent(SignUp.this, MainActivity.class);
                     startActivity(intent);
                 }
-                else
+                else if (!checkName && !checkPass)
                 {
-                    Toast.makeText(SignUp.this,"You have to enter a correct data",Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUp.this,"You have to enter your information",Toast.LENGTH_LONG).show();
                 }
             }
         });

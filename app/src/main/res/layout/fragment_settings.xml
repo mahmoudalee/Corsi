@@ -51,12 +51,11 @@
             android:layout_height="wrap_content"
             android:text="Admin"
             android:textSize="20sp"
-            android:gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:gravity="center" />
 
 
             <Button
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/sign_out_btn"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_gravity="center"
