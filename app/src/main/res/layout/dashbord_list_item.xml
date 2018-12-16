@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.jcminarro.roundkornerlayout.RoundKornerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
@@ -8,8 +8,9 @@
     android:layout_marginTop="10dp"
     android:layout_marginRight="15dp"
     android:layout_marginLeft="15dp"
-    android:background="@drawable/cards"
-    tools:ignore="MissingDefaultResource">
+    tools:ignore="MissingDefaultResource"
+    app:corner_radius="16dp"
+    android:background="#232222">
 
     <ImageView
         android:id="@+id/image_dashBoard"
@@ -22,7 +23,8 @@
         android:id="@+id/name_dashBoard"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:textStyle="bold"
+        android:textStyle="italic"
         android:gravity="center"
-        android:layout_weight="1"/>
-</LinearLayout>
+        android:layout_weight="1"
+        android:textColor="#fff"/>
+</com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>

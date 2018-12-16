@@ -35,7 +35,7 @@ public class SettingsFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        signOut = (Button) view.findViewById(R.id.sign_up_btn);
+        signOut = (Button) view.findViewById(R.id.sign_out_btn);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="320dp"
-            android:background="@drawable/bg"
+            android:background="@drawable/background"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -89,7 +89,7 @@
                     android:layout_marginTop="15dp"
                     android:background="@drawable/go_btn"
                     android:gravity="center"
-                    android:hint="Go !"
+                    android:hint="Sign up"
                     android:textColorHint="#fff"
                     android:textSize="22dp" />
 
@@ -129,7 +129,7 @@
             android:background="@drawable/fb_btn"
             android:drawableStart="@drawable/fb"
             android:drawableLeft="@drawable/fb"
-            android:hint="Login with facebook"
+            android:hint="Sign up with facebook"
             android:paddingLeft="20dp"
             android:textColorHint="#fff"
             android:textSize="16dp" />
@@ -141,7 +141,7 @@
             android:background="@drawable/tw_btn"
             android:drawableStart="@drawable/tw"
             android:drawableLeft="@drawable/tw"
-            android:hint="Login with Twitter"
+            android:hint="Sign up with Twitter"
             android:paddingLeft="20dp"
             android:textColorHint="#fff"
             android:textSize="16dp" />

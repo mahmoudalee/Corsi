@@ -23,6 +23,9 @@
 
         <activity android:name=".controller.AndroidCourse"></activity>
         <activity android:name=".controller.SignUp">
+
+        </activity>
+        <activity android:name=".controller.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
