@@ -52,7 +52,6 @@ public class DownloadsFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.list);
         listView.setAdapter(arrayAdapter);
 
-        //   return inflater.inflate(R.layout.fragment_downloads, container, false);
         return rootView;
     }
 

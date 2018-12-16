@@ -15,20 +15,21 @@ import java.util.ArrayList;
 
 public class DashbordAdapter extends RecyclerView.Adapter<DashbordAdapter.DashbordviewHolder> {
 
-    ArrayList<Dashbord>dashbords;
+    private ArrayList<Dashbord>dashbords;
+
+    //Constructor to git the arrayList that Created in Dashboard Fragment
     public DashbordAdapter (ArrayList<Dashbord>dashbord){
         dashbords = dashbord;
     }
+
     @NonNull
     @Override
     public DashbordAdapter.DashbordviewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.dashbord_list_item, viewGroup, false);
-        DashbordviewHolder dashbordviewHolder = new DashbordviewHolder(view);
 
-
-        return dashbordviewHolder;
+        return new DashbordviewHolder(view);
     }
 
     @Override
@@ -43,7 +44,6 @@ public class DashbordAdapter extends RecyclerView.Adapter<DashbordAdapter.Dashbo
     }
 
     public class DashbordviewHolder extends RecyclerView.ViewHolder {
-
         ImageView imageView ;
         TextView name;
 

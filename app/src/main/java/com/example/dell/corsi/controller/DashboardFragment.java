@@ -34,25 +34,13 @@ public class DashboardFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        dashbords.add((Dashbord) dashbordFactory.getCard("Android Development", R.drawable.slide1));
-//        dashbords.add((Dashbord) dashbordFactory.getCard("Android Development",R.drawable.slide2));
-//        dashbords.add(new Dashbord("Embadded Systems",R.drawable.slide3));
-//        dashbords.add(new Dashbord("Android Development",R.drawable.slide1));
-//        dashbords.add(new Dashbord("Android Development",R.drawable.slide2));
-//        dashbords.add(new Dashbord("Embadded Systems",R.drawable.slide3));
-//        dashbords.add(new Dashbord("Android Development",R.drawable.slide2));
-//        dashbords.add(new Dashbord("Embadded Systems",R.drawable.slide3));
-
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
-
-
     }
 
+    //responsible to add the course from home to dashboard
     public static void addToDashboard(String name , int image ) {
         dashbords.add((Dashbord) dashbordFactory.getCard(name, image));
     }
-
-
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

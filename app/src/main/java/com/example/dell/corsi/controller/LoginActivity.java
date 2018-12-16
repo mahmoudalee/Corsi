@@ -28,17 +28,20 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //singleton taking the userName and Password
+                //--it checks if there is another user and save it
                sinleton  = Sinleton.getAdmin(userName.getText().toString(),password.getText().toString());
 
 
-                if (sinleton.getmName().equals(sinleton.getnName())&& sinleton.getmPassword().equals(sinleton.getnPassword()))
-                {
-                    Intent i = new Intent(getBaseContext(),MainActivity.class);
-                    startActivity(i);
-                }
-                else{
-                    Toast.makeText(LoginActivity.this,"You are not the admin !!!", Toast.LENGTH_SHORT).show();
-                }
+               //if the added user and password are the same of the signed one will access
+               if (sinleton.getmName().equals(sinleton.getnName())&& sinleton.getmPassword().equals(sinleton.getnPassword()))
+               {
+                   Intent i = new Intent(getBaseContext(),MainActivity.class);
+                   startActivity(i);
+               }
+               else{
+                   Toast.makeText(LoginActivity.this,"You are not the admin !!!", Toast.LENGTH_SHORT).show();
+               }
             }
         });
     }

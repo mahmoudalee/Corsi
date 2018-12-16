@@ -18,6 +18,8 @@ public class CoursesBuilder {
         this.image = image;
         return this;
     }
+
+    //Build a Course Contents and return it
     public Courses addCource(){
         return new Courses(name,description , image);
     }

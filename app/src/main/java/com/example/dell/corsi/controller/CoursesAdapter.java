@@ -37,9 +37,8 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.ViewHold
         boolean shouldAttachToParentImmediately = false;
 
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
-        ViewHolder viewHolder = new ViewHolder(view);
 
-        return viewHolder;
+        return  new ViewHolder(view);
     }
 
     @Override

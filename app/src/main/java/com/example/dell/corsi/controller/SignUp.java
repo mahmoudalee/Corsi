@@ -29,6 +29,8 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //Validation to check if user add data or not
+                // then add it to Singleton
                 if(!userName.getText().toString().equals("") && !password.getText().toString().equals(""))
                 {
                     sinleton  = Sinleton.getAdmin(userName.getText().toString(),password.getText().toString());

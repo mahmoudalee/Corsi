@@ -7,8 +7,7 @@ public class Dashbord implements DashbordCard {
     private int image;
 
     public Dashbord(String name, int image) {
-        this.name = name;
-        this.image = image;
+       createCard(name , image);
     }
 
     public String getName() {
@@ -21,6 +20,7 @@ public class Dashbord implements DashbordCard {
 
     @Override
     public void createCard(String name, int image) {
-
+        this.name = name;
+        this.image = image;
     }
 }

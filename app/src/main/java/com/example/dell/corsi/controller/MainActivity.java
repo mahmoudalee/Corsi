@@ -12,34 +12,19 @@ import com.example.dell.corsi.R;
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView mMainNav;
-//    private FrameLayout mMainFrame;
-
-//    private HomeFragment homeFragment;
-//    private DashboardFragment dashboardFragment;
-//    private DoenlaodsFragment doenlaodsFragment;
-//    private SettingsFragment settingsFragment;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-//        mMainFrame = (FrameLayout)findViewById(R.id.fragment_container);
         mMainNav = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-
-//        homeFragment = new HomeFragment();
-//        dashboardFragment =new DashboardFragment();
-//        doenlaodsFragment =new DoenlaodsFragment();
-//        settingsFragment =new SettingsFragment();
 
         mMainNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HomeFragment() ).commit();
-
     }
 
+    //used to navigate between fragments
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

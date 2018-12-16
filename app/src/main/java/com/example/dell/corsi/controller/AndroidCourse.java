@@ -25,7 +25,7 @@ public class AndroidCourse extends AppCompatActivity {
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
         try {
-            Uri uri = Uri.parse("rtsp://r5---sn-4g5ednsk.googlevideo.com/Cj0LENy73wIaNAlsm0m-RMLpjhMYDSANFC2pIhRcMOCoAUIASARgqbeJ2oCnyohbigELX2JObFI4U1M1UU0M/A56623EBC6919EB104FBAC2422C2EB0224B03800.5A3EEDF79DAE90C9A33DF6DAE76461DC1E4FB059/yt6/1/video.3gp");
+            Uri uri = Uri.parse("rtsp://r5---sn-4g5ednsk.googlevideo.com/Cj0LENy73wIaNAlsm0m-RMLpjhMYDSANFC2fOhRcMOCoAUIASARgqbeJ2oCnyohbigELX2JObFI4U1M1UU0M/8D227A68848B5EDB6C559145315F127B4261FFD4.839DA8C028863DD8469EA286BF4AA99595970FC3/yt6/1/video.3gp");
             videoView.setVideoURI(uri);
             videoView.start();
         }catch (Exception e){

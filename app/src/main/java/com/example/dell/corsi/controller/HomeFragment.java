@@ -18,11 +18,12 @@ import com.example.dell.corsi.model.Courses;
 import com.example.dell.corsi.model.CoursesBuilder;
 import com.example.dell.corsi.model.Dashbord;
 import com.example.dell.corsi.R;
+import com.example.dell.corsi.model.HomeCourses;
 
 import java.util.ArrayList;
 
 public class HomeFragment
-         extends DashboardFragment
+        extends DashboardFragment
         implements CoursesAdapter.ListItemClickListener {
 
 
@@ -30,37 +31,19 @@ public class HomeFragment
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
-    ArrayList<Courses> courses = new ArrayList<Courses>();
+    HomeCourses homeCourses = new HomeCourses();
+    ArrayList<Courses> courses ;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-//        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-//
-//        // Inflate the layout for this fragment
-        courses.add(new CoursesBuilder().setName("Android Development (Basics)").setDescription("Learn Java and build mobile apps").setImage(R.drawable.slide1).addCource());
-        courses.add(new CoursesBuilder().setName("IOS Development").setDescription("Build an App for the iPhone and iPad").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Embedded Systems").setDescription("Android apps").setImage(R.drawable.slide3).addCource());
-        courses.add(new CoursesBuilder().setName("Machine Learning").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Computer Science").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 6").setDescription("Android apps").setImage(R.drawable.fb).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 7").setDescription("Android apps").setImage(R.drawable.fb).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 8").setDescription("Android apps").setImage(R.drawable.tw).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 9").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 10").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 11").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 12").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 13").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 14").setDescription("Android apps").setImage(R.drawable.slide2).addCource());
-        courses.add(new CoursesBuilder().setName("Lesson 15").setDescription("Android apps").setImage(R.drawable.slide3).addCource());
-//
-//        CoursesAdapter arrayAdapter = new CoursesAdapter(getActivity(),courses);
-//        ListView listView = (ListView) rootView.findViewById(R.id.listCourses);
-//        listView.setAdapter(arrayAdapter);
+        // the object returns the courses as arrayList and
+        //  each item on it has the content of the course
+        courses = homeCourses.CreateCourses();
 
-           return inflater.inflate(R.layout.fragment_home, container, false);
-//        return rootView;
+//      Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     ViewPager viewPager;
@@ -73,55 +56,47 @@ public class HomeFragment
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-
         sliderDotspanel = (LinearLayout) view.findViewById(R.id.SliderDots);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
 
         viewPager.setAdapter(viewPagerAdapter);
 
+        //viewPagerAdapter.getCount() returns the number of images that add in ViewPagerAdapter class
         dotscount = viewPagerAdapter.getCount();
         dots = new ImageView[dotscount];
 
+        // used to create the dots that indicate which photo shown in home
         for(int i = 0; i < dotscount; i++){
-
             dots[i] = new ImageView(getContext());
             dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.non_active_dot));
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
             params.setMargins(8, 0, 8, 0);
 
             sliderDotspanel.addView(dots[i], params);
-
         }
-
+        //set the default active to the first dot
         dots[0].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot));
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
-
             @Override
             public void onPageSelected(int position) {
-
+                //used to change the position of the active dot by set all of them non-active
+                //  then set the active one useing the position
                 for(int i = 0; i< dotscount; i++){
                     dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.non_active_dot));
                 }
-
                 dots[position].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot));
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
             }
         });
-
-
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_courses);
         mRecyclerView.setHasFixedSize(true);
@@ -131,10 +106,14 @@ public class HomeFragment
         mRecyclerView.setAdapter(mAdapter);
     }
 
-
+    //a variable stores card's data which add to Dashboard
     public static ArrayList<Dashbord> checkForDashboard = new ArrayList<Dashbord>();
+
     @Override
     public void onListItemClick(int itemIndex) {
+
+        // Validation to Check if the user entered any data or not
+        // true flag refers to the card that going to be added is not in dashboard so it will be added
         boolean flag = true;
         if(!checkForDashboard.isEmpty())
         {

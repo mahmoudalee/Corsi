@@ -21,7 +21,6 @@ public class SettingsFragment extends Fragment {
     Button signOut;
 
     public SettingsFragment() {
-        // Required empty public constructor
     }
 
 
@@ -35,6 +34,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         signOut = (Button) view.findViewById(R.id.sign_up_btn);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
